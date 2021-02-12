@@ -5,14 +5,14 @@
 int main()
 {
   
-printf("try a text");
+printf("try a text, q to quit.");
 
 char answer[100];
 
-while(answer != "<>"){
-  printf(">");
- fgets(answer);
-  puts(answer);
+ while(answer[0] != 'q'){
+  printf("\n >");
+  fgets(answer, 100, stdin);
+  printf("%s", answer);
  }
  return (0);
 }
