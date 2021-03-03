@@ -11,15 +11,17 @@ int main()
 char answer[100];
 
  
-while(answer[0] != 'q'){
   printf("\n >");
   fgets(answer, 100, stdin);
+  printf("%s", answer);
 
-  char *st =  word_start(answer);
-  char *end =  word_terminator(answer); 
-  printf("%s", answer, "\n");
-  printf("begins:", st , "\n");
-  printf("ends:", end, "\n"); 
-   }
- return (0);
+  char *manip;
+   manip =  word_start(answer);
+    printf(manip);
+   manip =  word_terminator(manip); 
+    printf("||c||",*manip); 
+
+    
+ done:
+    return 0;
 }

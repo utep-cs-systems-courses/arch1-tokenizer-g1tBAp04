@@ -23,7 +23,6 @@ char *word_terminator(char *word)
 }
 
 int count_words(char *str){
-  
   int count = 0;
   char *serch = str;
   
@@ -45,31 +44,32 @@ char *copy_str(char *inStr, short len){
      group[i] = inStr[i];
  }
    group[len] = '\0';
-     return repst;
+     return group;
 }
 
-void print_tokens(**tokens){
-  for (int cr = 0; cr < (tokens+cr); cr ++)
-    {printf("%s \n" , *(tokens + cr));}
-}
-
-void free_tokens(**tokens){ 
-  while(*tokens != '\0'){ 
-   free(*tokens);}
- free(tokens);
-}
- 
 char **tokenize(char *s){
   int attach = count_words(s);
-  char **trav = ((char**)malloc(attach+1)*sizeof(attach));
+  char **trav = ((char**)malloc((attach+1)*sizeof(char)));
   char *tail;
   char *head = word_start(s);
   
   for(int pick = 0; pick < attach; pick++){
-    tail = word_terminator(head)
+    tail = word_terminator(head);
       *trav[pick] = copy_str(head,(tail - head));
     head = word_start(tail);
   }
   *trav[attach+1] = '\0';
   return trav;
 }
+
+void print_tokens(char **tokens){
+  for (int cr = 0; cr < (tokens+cr); cr ++)
+    {printf("%s \n" , *(tokens + cr));}
+}
+
+void free_tokens(char **tokens){ 
+  while(*tokens != '\0'){ 
+   free(*tokens);}
+ free(tokens);
+}
+
