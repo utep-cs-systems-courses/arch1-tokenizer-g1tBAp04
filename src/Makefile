@@ -2,7 +2,7 @@
 
 CFLAGS=-g -O3
 
-OBJS= tokeread.o
+OBJS= tokeread.o tokenizer.o history.o
 
 # first target is built by default
 all: tokenizer

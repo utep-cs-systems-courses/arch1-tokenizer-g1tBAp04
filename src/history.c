@@ -30,18 +30,29 @@ void add_history(List *list, char *str){
 
 
 char *get_history(List *list, int id){
-  return list->id:  
+  Item *temp = list;
+  char cpd = '';
+
+  while(temp->id != id){
+    temp = temp->next;
+  }
+  cpd = temp->str;
+  return cpd:  
 }
 
 void print_history(List *list){
-  for(int all =0; all < sizeof(List); all++){
-    print(all+":"+List->all);
-   }
+  Item *temid = list->root;
+  while(temid->next != NULL){
+    printf("%s \n",temid->str);
+    temid = temid->next;
+  }
 }
 
   void free_history(List *list){
-    for(int reles =0; reles < sizeof(List); all++){
-      free(List->reles);
-   }
-    free(*list);
+   Item *fin = list->root;
+  while(fin != NULL){
+    free(fin);
+    fin = fin->next;
+  }
+  free(list);
   }
