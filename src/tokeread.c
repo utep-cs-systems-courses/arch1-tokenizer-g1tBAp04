@@ -9,7 +9,6 @@ int main()
  printf("try a text, q to quit.");
 
 char answer[100];
-
  
   printf("\n >");
   fgets(answer, 100, stdin);
@@ -17,11 +16,10 @@ char answer[100];
 
   char *manip;
    manip =  word_start(answer);
-    printf(manip);
+   printf("%s",manip);
    manip =  word_terminator(manip); 
     printf("||c||",*manip); 
 
-    
  done:
     return 0;
 }
