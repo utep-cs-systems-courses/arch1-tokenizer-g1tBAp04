@@ -1,6 +1,7 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include"history.h"
-#include "tokenizer.h"
+#include"tokenizer.h"
 
 
 List* init_history(){
@@ -11,13 +12,18 @@ List* init_history(){
 
 void add_history(List *list, char *str){
   int id;
-  Item addenum = (Item*)malloc(sizeof(Item));
-  addenum -> id = 0;
-  //add string to node
+
+  Item addenum = (Item)malloc(sizeof(Item));
+  addenum->id = 0;
+  
   if(list->root == NULL){
     list->root = addenum;  
   }
-      
+  
+  short pos = id;
+  
+  char copy_str(*str,pos);
+  
   Item *step = list->root;
   
   while(step->next != NULL){
@@ -30,19 +36,18 @@ void add_history(List *list, char *str){
 
 
 char *get_history(List *list, int id){
-  Item *temp = list;
-  char cpd = '';
-
+  Item *temp = list->root;
+  char *cpd;
   while(temp->id != id){
     temp = temp->next;
   }
-  cpd = temp->str;
-  return cpd:  
+  *cpd = temp->str;
+  return *cpd;  
 }
 
 void print_history(List *list){
   Item *temid = list->root;
-  while(temid->next != NULL){
+  while(temid != NULL){
     printf("%s \n",temid->str);
     temid = temid->next;
   }
